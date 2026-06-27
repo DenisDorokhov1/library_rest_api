@@ -1,0 +1,7 @@
+services:
+  app:
+    build: 
+      dockerfile: Dockerfile
+    command: python routes.py
+    ports:
+      - "5000:5000"

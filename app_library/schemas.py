@@ -8,12 +8,12 @@ class BookSchema(Schema):
     title = fields.Str(required=True)
     author_id = fields.Int(required=True)
 
-    @validates('title')
+    @validates("title")
     def validate_title(self, title: str) -> None:
         if get_book_by_title(title) is not None:
             raise ValidationError(
                 'Book with title "{title}" already exists, '
-                'please use a different title.'.format(title=title)
+                "please use a different title.".format(title=title)
             )
 
     @post_load
